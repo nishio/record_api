@@ -7,6 +7,9 @@ on:
 
   workflow_dispatch: # 手動トリガーも可能にする
 
+permissions:
+  contents: write  # これを追加してリポジトリに対する書き込み権限を与える
+
 jobs:
   fetch-api:
     runs-on: ubuntu-latest
