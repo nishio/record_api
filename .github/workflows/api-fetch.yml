@@ -28,7 +28,7 @@ jobs:
 
       # スクリプトの実行
       - name: Run fetch API script
-        run: node fetchApi.js
+        run: node fetchAPI.js
 
       # 結果をコミットしてプッシュ
       - name: Commit and push the result
