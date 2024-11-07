@@ -38,17 +38,24 @@ for file in json_files:
 
         conversation_data[conversation_id].append((cluster_count, timestamp, num_votes))
 
-# 時系列でソート
-for conversation_id in conversation_data:
-    conversation_data[conversation_id].sort(key=lambda x: x[0])
 
 # # クラスタ数を時系列でプロット
 # plt.figure(figsize=(10, 6))
-# for conversation_id, records in conversation_data.items():
-#     times = [record[0] for record in records]
-#     cluster_counts = [record[1] for record in records]
-#     plt.plot(times, cluster_counts, label=f"Conversation {conversation_id}")
+import pandas as pd
 
+# 時系列でソート
+for conversation_id in conversation_data:
+    conversation_data[conversation_id].sort(key=lambda x: x[1])
+
+for conversation_id, records in conversation_data.items():
+    cluster_counts = [record[0] for record in records]
+    # DataFrameに変換
+    df = pd.DataFrame(cluster_counts, columns=["Value"])
+
+    # 移動平均（例: 窓幅=10）でスムージング
+    df["Smoothed"] = df["Value"].rolling(window=48, center=True).mean()
+    plt.plot(df["Smoothed"], label=f"Conversation {conversation_id}")
+plt.show()
 # plt.xlabel("Time")
 # plt.ylabel("Number of Clusters")
 # plt.title("Number of Clusters over Time for Each Conversation")
@@ -57,6 +64,11 @@ for conversation_id in conversation_data:
 # plt.xticks(rotation=45)
 # plt.tight_layout()
 # plt.show()
+
+# 数でソート
+for conversation_id in conversation_data:
+    conversation_data[conversation_id].sort(key=lambda x: x[0])
+
 
 # Conversation IDごとに、最もクラスタ数が多くて、その中で最も新しいデータを表示
 for conversation_id, records in conversation_data.items():
@@ -77,6 +89,7 @@ conversation_dict = {
     "35r8w9kkfp": "税制",
     "32ffrfvrrf": "政治資金規制改革",
     "3dzkftnmrm": "エネルギー政策",
+    "3zwj5fwytm": "デジタル民主主義",
 }
 
 print("-" * 50)
