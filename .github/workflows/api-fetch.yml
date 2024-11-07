@@ -1,9 +1,9 @@
 name: Fetch API and Save JSON
 
 on:
-  schedule:
-    # 毎時0分に実行
-    - cron: '0 * * * *'
+  # schedule:
+  #   # 毎時0分に実行
+  #   - cron: '0 * * * *'
 
   workflow_dispatch: # 手動トリガーも可能にする
 
