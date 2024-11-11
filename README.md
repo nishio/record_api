@@ -11,3 +11,6 @@ GitHubのリポジトリページにアクセスし、右上の「Settings」を
 「Workflow permissions」を探します。
 「GITHUB_TOKEN」の権限を変更:
 「Read and write permissions」を選択し、プッシュの権限を有効にします。
+
+
+$ cat data/69rmeiumcr-2024-11-04T14-05-55.166Z.json | pbcopy

@@ -84,10 +84,10 @@ for conversation_id, records in conversation_data.items():
 
 conversation_dict = {
     "69rmeiumcr": "経済政策・物価高対策",
-    "42pditmrma": "社会保障（年金・医療）",
-    "77anwcwh4b": "憲法",
-    "35r8w9kkfp": "税制",
     "32ffrfvrrf": "政治資金規制改革",
+    "77anwcwh4b": "憲法",
+    "42pditmrma": "社会保障（年金・医療）",
+    "35r8w9kkfp": "税制",
     "3dzkftnmrm": "エネルギー政策",
     "3zwj5fwytm": "デジタル民主主義",
 }
